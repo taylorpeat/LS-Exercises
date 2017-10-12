@@ -42,6 +42,18 @@ def count_occurrences(vehicles)
   end
 end
 
-vehicles = ['car', 'car', 'truck', 'car', 'SUV', 'truck', 'motorcycle', 'motorcycle', 'car', 'truck']
+# vehicles = ['car', 'car', 'truck', 'car', 'SUV', 'truck', 'motorcycle', 'motorcycle', 'car', 'truck']
 
-count_occurrences(vehicles)
+# count_occurrences(vehicles)
+
+# Problem 5
+
+def reverse_sentence(sentence)
+  sentence.split(' ').reverse.join(' ')
+end
+
+# puts reverse_sentence('') == ''
+# puts reverse_sentence('Hello World') == 'World Hello'
+# puts reverse_sentence('Reverse these words') == 'words these Reverse'
+
+# Problem 6
