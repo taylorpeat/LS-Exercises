@@ -104,6 +104,16 @@ def sum(num)
   num.to_s.chars.reduce(0) { |sum, n| sum + n.to_i }
 end
 
-puts sum(23) == 5
-puts sum(496) == 19
-puts sum(123_456_789) == 45
+# puts sum(23) == 5
+# puts sum(496) == 19
+# puts sum(123_456_789) == 45
+
+# Problem 10
+
+def calculate_bonus(salary, eligible)
+  eligible ? salary / 2 : 0
+end
+
+puts calculate_bonus(2800, true) == 1400
+puts calculate_bonus(1000, false) == 0
+puts calculate_bonus(50000, true) == 25000
