@@ -73,3 +73,29 @@ end
 
 # Problem 7
 
+def stringy(num)
+  string = ""
+  
+  num.times do |n|
+    string += ((n + 1) % 2).to_s
+  end
+
+  string
+end
+
+# puts stringy(6) == '101010'
+# puts stringy(9) == '101010101'
+# puts stringy(4) == '1010'
+# puts stringy(7) == '1010101'
+
+
+# Problem 8
+
+def average(integers)
+  integers.reduce(:+) / integers.length
+end
+
+# puts average([1, 5, 87, 45, 8, 8]) == 25
+# puts average([9, 47, 23, 95, 16, 52]) == 40
+
+# Problem 9
