@@ -1,16 +1,16 @@
 # Problem 1
 
-def randomAge
+def random_age
   puts "Teddy is #{ rand(20..200) } years old!"
 end
 
-# randomAge
+# random_age
 
 # Problem 2
 
 SQMETERS_TO_SQFEET = 3.28084 ** 2
 
-def getRoomDimensions
+def get_room_dimensions
   puts "Enter the length of the room in meters:"
   length = gets.chomp
 
@@ -22,11 +22,11 @@ def getRoomDimensions
        "(#{(area * SQMETERS_TO_SQFEET).round(2)} square feet).\n\n"
 end
 
-# getRoomDimensions
+# get_room_dimensions
 
 # Problem 3
 
-def tipCalculator
+def tip_calculator
   print "What is the bill? "
   bill = gets.chomp.to_f
 
@@ -40,11 +40,11 @@ def tipCalculator
   puts "The total is $#{format("%.2f", total)}\n\n"
 end
 
-# tipCalculator
+# tip_calculator
 
 # Problem 4
 
-def retirementAge
+def retirement_age
   print "What is your age? "
   age = gets.chomp.to_i
 
@@ -59,11 +59,11 @@ def retirementAge
   puts "You have only #{years_rem} years of work to go!\n\n"
 end
 
-# retirementAge
+# retirement_age
 
 # Problem 5
 
-def nameYell
+def name_yell
   print "What is your name? "
   name = gets.chomp
 
@@ -74,4 +74,21 @@ def nameYell
   end
 end
 
-nameYell
+# name_yell
+
+# Problem 6
+
+def odd_numbers
+  99.times { |i| puts i if i.odd? }
+end
+
+def odd_numbers2
+  (1..99).step(2) { |i| puts i }
+end
+
+# odd_numbers2
+
+# Problem 8
+
+def sum_product
+
