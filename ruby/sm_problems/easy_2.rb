@@ -91,4 +91,32 @@ end
 # Problem 8
 
 def sum_product
+  num = 0
+  
+  while num <= 0
+    puts "\nPlease enter an integer greater than 0:"
+    num = gets.chomp.to_i
+  end
 
+  operator = ''
+  while !['s', 'p'].include?(operator)
+    puts "\nEnter 's' to compute the sum, 'p' to compute the product."
+    operator = gets.chomp.downcase
+  end
+
+  if operator == 's'
+    puts "The sum of the integers between 1 and #{num} is #{consecutive_sum(num)}."
+  else
+    puts "The product of the integers between 1 and #{num} is #{consecutive_product(num)}."
+  end
+end
+
+def consecutive_sum(num)
+  (1..num).reduce(0, :+)
+end
+
+def consecutive_product(num)
+  (1..num).reduce(1, :*)
+end
+
+sum_product
