@@ -36,4 +36,17 @@ def multiple_operations
   end
 end
 
-multiple_operations
+# multiple_operations
+
+# Problem 3
+
+def character_counter
+  puts "Please write a word or multiple words:"
+  string = gets.chomp
+
+  chars = string.gsub(' ', '').length
+
+  puts "There are #{chars} characters in #{string}."
+end
+
+character_counter
