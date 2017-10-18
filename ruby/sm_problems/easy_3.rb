@@ -1,3 +1,6 @@
+require 'pry'
+require 'rb-readline'
+
 # Problem 1
 
 NUMBERS = %w(1st 2nd 3rd 4th 5th last)
@@ -49,4 +52,27 @@ def character_counter
   puts "There are #{chars} characters in #{string}."
 end
 
-character_counter
+# character_counter
+
+# Problem 4
+
+def multiply(num1, num2)
+  num1 * num2
+end
+
+# puts multiply(5,3) == 15
+
+# Problem 5
+
+def square(num)
+  multiply(num, num)
+end
+
+def power_of(num)
+  product = 1
+  num.times { product = multiply(product, num) }
+  product
+end
+
+puts square(5) == 25
+puts square(-8) == 64
