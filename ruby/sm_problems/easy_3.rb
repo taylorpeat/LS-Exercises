@@ -74,5 +74,35 @@ def power_of(num)
   product
 end
 
-puts square(5) == 25
-puts square(-8) == 64
+# puts square(5) == 25
+# puts square(-8) == 64
+
+# Problem 6
+
+def xor?(boolean1, boolean2)
+  boolean1 != boolean2
+end
+
+# puts xor?(5.even?, 4.even?) == true
+# puts xor?(5.odd?, 4.odd?) == true
+# puts xor?(5.odd?, 4.even?) == false
+# puts xor?(5.even?, 4.odd?) == false
+
+# Problem 7
+
+def oddities(arr)
+  new_arr = []
+  
+  while arr.length > 0
+    new_arr << arr.shift
+    arr.shift if arr.length > 0
+  end
+
+  new_arr
+end
+
+puts oddities([2, 3, 4, 5, 6]) == [2, 4, 6]
+puts oddities(['abc', 'def']) == ['abc']
+puts oddities([123]) == [123]
+puts oddities([]) == []
+
