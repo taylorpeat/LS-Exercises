@@ -44,15 +44,73 @@ def century(year)
   century.to_s + suffix
 end
 
-puts century(2000) == '20th'
-puts century(2001) == '21st'
-puts century(1965) == '20th'
-puts century(256) == '3rd'
-puts century(5) == '1st'
-puts century(10103) == '102nd'
-puts century(1052) == '11th'
-puts century(1127) == '12th'
-puts century(11201) == '113th'
+# puts century(2000) == '20th'
+# puts century(2001) == '21st'
+# puts century(1965) == '20th'
+# puts century(256) == '3rd'
+# puts century(5) == '1st'
+# puts century(10103) == '102nd'
+# puts century(1052) == '11th'
+# puts century(1127) == '12th'
+# puts century(11201) == '113th'
+
+
+# Problem 3
+
+def leap_year1?(year)
+  if year % 400 == 0
+    true
+  elsif year % 100 == 0
+    false
+  elsif year % 4 == 0
+    true
+  else
+    false
+  end
+end
+
+# puts leap_year?(2016) == true
+# puts leap_year?(2015) == false
+# puts leap_year?(2100) == false
+# puts leap_year?(2400) == true
+# puts leap_year?(240000) == true
+# puts leap_year?(240001) == false
+# puts leap_year?(2000) == true
+# puts leap_year?(1900) == false
+# puts leap_year?(1752) == true
+# puts leap_year?(1700) == false
+# puts leap_year?(1) == false
+# puts leap_year?(100) == false
+# puts leap_year?(400) == true
+
+# Problem 4
+
+def leap_year?(year)
+  if year < 1753
+    year % 4 == 0
+  else
+    leap_year1?(year)
+  end
+end
+
+puts leap_year?(2016) == true
+puts leap_year?(2015) == false
+puts leap_year?(2100) == false
+puts leap_year?(2400) == true
+puts leap_year?(240000) == true
+puts leap_year?(240001) == false
+puts leap_year?(2000) == true
+puts leap_year?(1900) == false
+puts leap_year?(1752) == true
+puts leap_year?(1700) == true
+puts leap_year?(1) == false
+puts leap_year?(100) == true
+puts leap_year?(400) == true
+
+
+
+
+
 
 
 
