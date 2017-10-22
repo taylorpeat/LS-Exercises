@@ -101,8 +101,48 @@ def oddities(arr)
   new_arr
 end
 
-puts oddities([2, 3, 4, 5, 6]) == [2, 4, 6]
-puts oddities(['abc', 'def']) == ['abc']
-puts oddities([123]) == [123]
-puts oddities([]) == []
+# puts oddities([2, 3, 4, 5, 6]) == [2, 4, 6]
+# puts oddities(['abc', 'def']) == ['abc']
+# puts oddities([123]) == [123]
+# puts oddities([]) == []
 
+# Problem 8
+
+def palindrome?(string)
+  string == string.reverse
+end
+
+# puts palindrome?('madam') == true
+# puts palindrome?('Madam') == false          # (case matters)
+# puts palindrome?("madam i'm adam") == false # (all characters matter)
+# puts palindrome?('356653') == true
+# puts palindrome?([1,2,3]) == false
+# puts palindrome?([1,2,1]) == true
+
+# Problem 9
+
+def real_palindrome?(string)
+  parsed_string = string.gsub(/\W/, '').downcase
+  parsed_string == parsed_string.reverse
+end
+
+# puts real_palindrome?('madam') == true
+# puts real_palindrome?('Madam') == true           # (case does not matter)
+# puts real_palindrome?("Madam, I'm Adam") == true # (only alphanumerics matter)
+# puts real_palindrome?('356653') == true
+# puts real_palindrome?('356a653') == true
+# puts real_palindrome?('123ab321') == false
+
+
+# Problem 10
+
+def palindromic_number?(num)
+  num_str = num.to_s
+  num_str == num_str.reverse
+end
+
+puts palindromic_number?(34543) == true
+puts palindromic_number?(123210) == false
+puts palindromic_number?(22) == true
+puts palindromic_number?(5) == true
+puts palindromic_number?(05) == true
