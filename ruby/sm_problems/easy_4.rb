@@ -121,12 +121,22 @@ def multisum_inject(num)
   (1..num).reduce(0) { |sum, n| n % 3 == 0 || n % 5 == 0 ? sum + n : sum }
 end
 
-puts multisum(3) == 3
-puts multisum(5) == 8
-puts multisum(10) == 33
-puts multisum(1000) == 234168
+# puts multisum(3) == 3
+# puts multisum(5) == 8
+# puts multisum(10) == 33
+# puts multisum(1000) == 234168
 
 
+# Problem 5
 
+def running_total(numbers)
+  total = 0
+  numbers.map { |n| total += n }
+end
+
+puts running_total([2, 5, 13]) == [2, 7, 20]
+puts running_total([14, 11, 7, 15, 20]) == [14, 25, 32, 47, 67]
+puts running_total([3]) == [3]
+puts running_total([]) == []
 
 
