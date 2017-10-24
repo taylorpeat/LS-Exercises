@@ -140,6 +140,7 @@ end
 # puts running_total([]) == []
 
 # Problem 6
+
 DIGITS = {
   '0' => 0,
   '1' => 1,
@@ -160,5 +161,17 @@ def string_to_integer(string)
   total
 end
 
-puts string_to_integer('4321') == 4321
-puts string_to_integer('570') == 570
+# puts string_to_integer('4321') == 4321
+# puts string_to_integer('570') == 570
+
+# Problem 7
+
+def string_to_signed_integer(str)
+  num = string_to_integer(str.delete('+-'))
+  num = -num if str[0] == '-'
+  num
+end
+
+puts string_to_signed_integer('4321') == 4321
+puts string_to_signed_integer('-570') == -570
+puts string_to_signed_integer('+100') == 100
