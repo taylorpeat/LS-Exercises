@@ -134,9 +134,31 @@ def running_total(numbers)
   numbers.map { |n| total += n }
 end
 
-puts running_total([2, 5, 13]) == [2, 7, 20]
-puts running_total([14, 11, 7, 15, 20]) == [14, 25, 32, 47, 67]
-puts running_total([3]) == [3]
-puts running_total([]) == []
+# puts running_total([2, 5, 13]) == [2, 7, 20]
+# puts running_total([14, 11, 7, 15, 20]) == [14, 25, 32, 47, 67]
+# puts running_total([3]) == [3]
+# puts running_total([]) == []
 
+# Problem 6
+DIGITS = {
+  '0' => 0,
+  '1' => 1,
+  '2' => 2,
+  '3' => 3,
+  '4' => 4,
+  '5' => 5,
+  '6' => 6,
+  '7' => 7,
+  '8' => 8,
+  '9' => 9,
+}
+def string_to_integer(string)
+  total = 0
+  string.chars.each.with_index do |n, idx|
+    total += DIGITS[n] * 10 ** (string.length - idx - 1)
+  end
+  total
+end
 
+puts string_to_integer('4321') == 4321
+puts string_to_integer('570') == 570
