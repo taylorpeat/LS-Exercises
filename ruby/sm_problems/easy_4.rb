@@ -1,3 +1,6 @@
+require 'pry'
+require 'rb-readline'
+
 # Problem 1
 
 def short_long_short(str1, str2)
@@ -172,6 +175,35 @@ def string_to_signed_integer(str)
   num
 end
 
-puts string_to_signed_integer('4321') == 4321
-puts string_to_signed_integer('-570') == -570
-puts string_to_signed_integer('+100') == 100
+# puts string_to_signed_integer('4321') == 4321
+# puts string_to_signed_integer('-570') == -570
+# puts string_to_signed_integer('+100') == 100
+
+
+# Problem 8
+NUMBERS = { 
+  0 => '0', 1 => '1', 2 => '2', 3 => '3',
+  4 => '4', 5 => '5', 6 => '6',
+  7 => '7', 8 => '8', 9 => '9',
+}
+
+
+def integer_to_string(int)
+  string = ''
+
+  loop do
+    string = NUMBERS[int % 10] + string
+    int /= 10
+    break if int == 0
+  end
+
+  string
+end
+
+puts integer_to_string(4321) == '4321'
+puts integer_to_string(0) == '0'
+puts integer_to_string(5000) == '5000'
+
+
+
+
