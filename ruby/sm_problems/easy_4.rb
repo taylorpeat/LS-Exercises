@@ -130,7 +130,7 @@ end
 # puts multisum(1000) == 234168
 
 
-# Problem 5
+# Problem 6
 
 def running_total(numbers)
   total = 0
@@ -142,7 +142,7 @@ end
 # puts running_total([3]) == [3]
 # puts running_total([]) == []
 
-# Problem 6
+# Problem 7
 
 DIGITS = {
   '0' => 0,
@@ -167,7 +167,7 @@ end
 # puts string_to_integer('4321') == 4321
 # puts string_to_integer('570') == 570
 
-# Problem 7
+# Problem 8
 
 def string_to_signed_integer(str)
   num = string_to_integer(str.delete('+-'))
@@ -180,7 +180,8 @@ end
 # puts string_to_signed_integer('+100') == 100
 
 
-# Problem 8
+# Problem 9
+
 NUMBERS = { 
   0 => '0', 1 => '1', 2 => '2', 3 => '3',
   4 => '4', 5 => '5', 6 => '6',
@@ -200,10 +201,24 @@ def integer_to_string(int)
   string
 end
 
-puts integer_to_string(4321) == '4321'
-puts integer_to_string(0) == '0'
-puts integer_to_string(5000) == '5000'
+# puts integer_to_string(4321) == '4321'
+# puts integer_to_string(0) == '0'
+# puts integer_to_string(5000) == '5000'
 
 
+# Problem 10
 
+def signed_integer_to_string(int)
+  string = integer_to_string(int.abs)
+  if int < 0
+    string.prepend('-') 
+  elsif int > 0
+    string.prepend('+')
+  end
+  string
+end
+
+puts signed_integer_to_string(4321) == '+4321'
+puts signed_integer_to_string(-123) == '-123'
+puts signed_integer_to_string(0) == '0'
 
