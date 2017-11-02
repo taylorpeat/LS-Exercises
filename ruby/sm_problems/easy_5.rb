@@ -48,9 +48,34 @@ def before_midnight(time_string)
   (hours * MIN_PER_HOUR + minutes) % MIN_PER_DAY
 end
 
-puts after_midnight('00:00') == 0
-puts before_midnight('00:00') == 0
-puts after_midnight('12:34') == 754
-puts before_midnight('12:34') == 686
-puts after_midnight('24:00') == 0
-puts before_midnight('24:00') == 0
+# puts after_midnight('00:00') == 0
+# puts before_midnight('00:00') == 0
+# puts after_midnight('12:34') == 754
+# puts before_midnight('12:34') == 686
+# puts after_midnight('24:00') == 0
+# puts before_midnight('24:00') == 0
+
+# Problem 4
+
+def swap(words)
+  words.split(' ').map { |word| switch_letters(word) }.join(' ')
+end
+
+def switch_letters(word)
+  word[0], word[-1] = word[-1], word[0]
+  word
+end
+
+# puts swap('Oh what a wonderful day it is') == 'hO thaw a londerfuw yad ti si'
+# puts swap('Abcde') == 'ebcdA'
+# puts swap('a') == 'a'
+
+# Problem 5
+
+def cleanup(dirty_string)
+  dirty_string.gsub(/\W/, ' ').gsub(/\s+/, ' ')
+end
+
+puts cleanup("---what's my +*& line?") == ' what s my line '
+
+
