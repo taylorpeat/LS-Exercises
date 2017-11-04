@@ -76,6 +76,19 @@ def cleanup(dirty_string)
   dirty_string.gsub(/\W/, ' ').gsub(/\s+/, ' ')
 end
 
-puts cleanup("---what's my +*& line?") == ' what s my line '
+# puts cleanup("---what's my +*& line?") == ' what s my line '
 
+# Problem 6
 
+def word_sizes(words)
+  sizes = Hash.new(0)
+  
+  words.split(' ').each { |word| sizes[word.length] += 1 }
+
+  sizes
+end
+
+puts word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 1, 6 => 1 }
+puts word_sizes('Hey diddle diddle, the cat and the fiddle!') == { 3 => 5, 6 => 1, 7 => 2 }
+puts word_sizes("What's up doc?") == { 6 => 1, 2 => 1, 4 => 1 }
+puts word_sizes('') == {}
