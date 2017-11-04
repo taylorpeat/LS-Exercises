@@ -88,7 +88,41 @@ def word_sizes(words)
   sizes
 end
 
-puts word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 1, 6 => 1 }
-puts word_sizes('Hey diddle diddle, the cat and the fiddle!') == { 3 => 5, 6 => 1, 7 => 2 }
-puts word_sizes("What's up doc?") == { 6 => 1, 2 => 1, 4 => 1 }
-puts word_sizes('') == {}
+# puts word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 1, 6 => 1 }
+# puts word_sizes('Hey diddle diddle, the cat and the fiddle!') == { 3 => 5, 6 => 1, 7 => 2 }
+# puts word_sizes("What's up doc?") == { 6 => 1, 2 => 1, 4 => 1 }
+# puts word_sizes('') == {}
+
+# Problem 7
+
+def word_sizes2(words)
+  sizes = Hash.new(0)
+  
+  words.split(' ').each do |word|
+    word_length = word.gsub(/\W/, '').length
+    sizes[word_length] += 1
+  end
+
+  sizes
+end
+
+# puts word_sizes2('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 2 }
+# puts word_sizes2('Hey diddle diddle, the cat and the fiddle!') == { 3 => 5, 6 => 3 }
+# puts word_sizes2("What's up doc?") == { 5 => 1, 2 => 1, 3 => 1 }
+# puts word_sizes2('') == {}
+
+# Problem #8
+NUMBER_WORDS = %w(zero one two three four five six seven eight nine ten
+                         eleven twelve thirteen fourteen fifteen sixteen
+                         seventeen eighteen nineteen)
+
+def alphabetic_number_sort(numbers)
+  numbers.sort do |num1, num2|
+    NUMBER_WORDS[num1] <=> NUMBER_WORDS[num2]
+  end
+end
+
+puts alphabetic_number_sort((0..19).to_a) == [
+  8, 18, 11, 15, 5, 4, 14, 9, 19, 1, 7, 17,
+  6, 16, 10, 13, 3, 12, 2, 0
+]
