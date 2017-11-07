@@ -112,6 +112,7 @@ end
 # puts word_sizes2('') == {}
 
 # Problem #8
+
 NUMBER_WORDS = %w(zero one two three four five six seven eight nine ten
                          eleven twelve thirteen fourteen fifteen sixteen
                          seventeen eighteen nineteen)
@@ -122,7 +123,20 @@ def alphabetic_number_sort(numbers)
   end
 end
 
-puts alphabetic_number_sort((0..19).to_a) == [
-  8, 18, 11, 15, 5, 4, 14, 9, 19, 1, 7, 17,
-  6, 16, 10, 13, 3, 12, 2, 0
-]
+# puts alphabetic_number_sort((0..19).to_a) == [
+#   8, 18, 11, 15, 5, 4, 14, 9, 19, 1, 7, 17,
+#   6, 16, 10, 13, 3, 12, 2, 0
+# ]
+
+# Problem #9
+
+def crunch(string)
+  string.gsub(/(.)\1+/, '\1')
+end
+
+puts crunch('ddaaiillyy ddoouubbllee') == 'daily double'
+puts crunch('4444abcabccba') == '4abcabcba'
+puts crunch('ggggggggggggggg') == 'g'
+puts crunch('a') == 'a'
+puts crunch('') == ''
+
