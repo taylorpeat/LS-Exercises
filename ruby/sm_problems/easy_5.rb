@@ -134,9 +134,23 @@ def crunch(string)
   string.gsub(/(.)\1+/, '\1')
 end
 
-puts crunch('ddaaiillyy ddoouubbllee') == 'daily double'
-puts crunch('4444abcabccba') == '4abcabcba'
-puts crunch('ggggggggggggggg') == 'g'
-puts crunch('a') == 'a'
-puts crunch('') == ''
+# puts crunch('ddaaiillyy ddoouubbllee') == 'daily double'
+# puts crunch('4444abcabccba') == '4abcabcba'
+# puts crunch('ggggggggggggggg') == 'g'
+# puts crunch('a') == 'a'
+# puts crunch('') == ''
 
+# Problem 10
+
+def print_in_box(text)
+  box_width = text.length + 2
+  puts "+" + "-" * box_width + "+"
+  puts "|" + " " * box_width + "|"
+  puts "| #{text} |"
+  puts "|" + " " * box_width + "|"
+  puts "+" + "-" * box_width + "+"
+end
+
+print_in_box('')
+print_in_box('Hello')
+print_in_box('Hello my name is Taylor.')
