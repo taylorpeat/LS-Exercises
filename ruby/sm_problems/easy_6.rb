@@ -99,21 +99,36 @@ def reverse(list)
   list.map.with_index(1) { |_, idx| list[-idx] }
 end
 
-puts reverse([1,2,3,4]) == [4,3,2,1]          # => true
-puts reverse(%w(a b c d e)) == %w(e d c b a)  # => true
-puts reverse(['abc']) == ['abc']              # => true
-puts reverse([]) == []                        # => true
+# puts reverse([1,2,3,4]) == [4,3,2,1]          # => true
+# puts reverse(%w(a b c d e)) == %w(e d c b a)  # => true
+# puts reverse(['abc']) == ['abc']              # => true
+# puts reverse([]) == []                        # => true
 
-list = [1, 2, 3]                      # => [1, 2, 3]
-new_list = reverse(list)              # => [3, 2, 1]
-puts list.object_id != new_list.object_id  # => true
-puts list == [1, 2, 3]                     # => true
-puts new_list == [3, 2, 1]                 # => true
+# list = [1, 2, 3]                      # => [1, 2, 3]
+# new_list = reverse(list)              # => [3, 2, 1]
+# puts list.object_id != new_list.object_id  # => true
+# puts list == [1, 2, 3]                     # => true
+# puts new_list == [3, 2, 1]                 # => true
 
+# Problem 6
 
+def merge(arr1, arr2)
+  arr1.concat(arr2).uniq
+end
 
+# puts merge([1, 3, 5], [3, 6, 9]) == [1, 3, 5, 6, 9]
 
+# Problem 7
 
+def halvsies(arr)
+  halfway = arr.length / 2
+  arr2 = arr.slice!(halfway * -1, halfway)
+  [arr, arr2]
+end
 
+puts halvsies([1, 2, 3, 4]) == [[1, 2], [3, 4]]
+puts halvsies([1, 5, 2, 4, 3]) == [[1, 5, 2], [4, 3]]
+puts halvsies([5]) == [[5], []]
+puts halvsies([]) == [[], []]
 
 
