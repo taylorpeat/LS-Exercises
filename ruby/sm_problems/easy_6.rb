@@ -76,26 +76,39 @@ def reverse!(list)
   list
 end
 
-list = [1,2,3,4]
-result = reverse!(list) # => [4,3,2,1]
-list == [4, 3, 2, 1]
-puts list.object_id == result.object_id
+# list = [1,2,3,4]
+# result = reverse!(list) # => [4,3,2,1]
+# list == [4, 3, 2, 1]
+# puts list.object_id == result.object_id
 
-list = %w(a b c d e)
-reverse!(list) # => ["e", "d", "c", "b", "a"]
-puts list == ["e", "d", "c", "b", "a"]
+# list = %w(a b c d e)
+# reverse!(list) # => ["e", "d", "c", "b", "a"]
+# puts list == ["e", "d", "c", "b", "a"]
 
-list = ['abc']
-reverse!(list) # => ["abc"]
-puts list == ["abc"]
+# list = ['abc']
+# reverse!(list) # => ["abc"]
+# puts list == ["abc"]
 
-list = []
-reverse!(list) # => []
-puts list == []
+# list = []
+# reverse!(list) # => []
+# puts list == []
 
+# Problem 5
 
+def reverse(list)
+  list.map.with_index(1) { |_, idx| list[-idx] }
+end
 
+puts reverse([1,2,3,4]) == [4,3,2,1]          # => true
+puts reverse(%w(a b c d e)) == %w(e d c b a)  # => true
+puts reverse(['abc']) == ['abc']              # => true
+puts reverse([]) == []                        # => true
 
+list = [1, 2, 3]                      # => [1, 2, 3]
+new_list = reverse(list)              # => [3, 2, 1]
+puts list.object_id != new_list.object_id  # => true
+puts list == [1, 2, 3]                     # => true
+puts new_list == [3, 2, 1]                 # => true
 
 
 
