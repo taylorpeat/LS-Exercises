@@ -28,7 +28,7 @@ end
 
 # Problem 3
 
-def find_fibonacci_index_by_length(digits)
+def find_fibonacci_index_by_lengthx(digits)
   target_number = 10 ** (digits - 1)
   recent_nums = [1,1]
   idx = 2
@@ -58,8 +58,49 @@ def find_fibonacci_index_by_length2(digits)
   idx
 end
 
-puts find_fibonacci_index_by_length(2) == 7
-puts find_fibonacci_index_by_length(10) == 45
-puts find_fibonacci_index_by_length(100) == 476
-puts find_fibonacci_index_by_length(1000) == 4782
-puts find_fibonacci_index_by_length(10000) == 47847
+# puts find_fibonacci_index_by_length(2) == 7
+# puts find_fibonacci_index_by_length(10) == 45
+# puts find_fibonacci_index_by_length(100) == 476
+# puts find_fibonacci_index_by_length(1000) == 4782
+# puts find_fibonacci_index_by_length(10000) == 47847
+
+
+# Problem 4
+
+def reverse!(list)
+  orig_length = list.length
+  
+  (orig_length - 1).downto(0) { |idx| list.push(list[idx]) }
+  
+  list.slice!(0, orig_length)
+  list
+end
+
+list = [1,2,3,4]
+result = reverse!(list) # => [4,3,2,1]
+list == [4, 3, 2, 1]
+puts list.object_id == result.object_id
+
+list = %w(a b c d e)
+reverse!(list) # => ["e", "d", "c", "b", "a"]
+puts list == ["e", "d", "c", "b", "a"]
+
+list = ['abc']
+reverse!(list) # => ["abc"]
+puts list == ["abc"]
+
+list = []
+reverse!(list) # => []
+puts list == []
+
+
+
+
+
+
+
+
+
+
+
+
