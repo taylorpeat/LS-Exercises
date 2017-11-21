@@ -49,6 +49,39 @@ end
 # puts swapcase('CamelCase') == 'cAMELcASE'
 # puts swapcase('Tonight on XYZ-TV') == 'tONIGHT ON xyz-tv'
 
+def staggered_case(string)
+  string.downcase!
+  upcase = true
+
+  string.chars.map do |ch|
+    ch.upcase! if upcase
+    upcase = !upcase
+    ch
+  end.join('')
+end
+
+puts staggered_case('I Love Launch School!')
+puts staggered_case('ALL_CAPS') == 'AlL_CaPs'
+puts staggered_case('ignore 77 the 444 numbers') == 'IgNoRe 77 ThE 444 NuMbErS'
+
+def staggered_case2(string)
+  string.downcase!
+  upcase = true
+
+  string.chars.map do |ch|
+    if ch.upcase != ch
+      ch.upcase! if upcase
+      upcase = !upcase
+    end
+
+    ch
+  end.join('')
+end
+
+
+puts staggered_case2('I Love Launch School!') == 'I lOvE lAuNcH sChOoL!'
+puts staggered_case2('ALL CAPS') == 'AlL cApS'
+puts staggered_case2('ignore 77 the 444 numbers') == 'IgNoRe 77 ThE 444 nUmBeRs'
 
 
 
