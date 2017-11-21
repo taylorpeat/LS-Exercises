@@ -91,8 +91,38 @@ def show_multiplicative_average(numbers)
   puts "The result is #{sprintf('%.3f', result)}"
 end
 
-puts show_multiplicative_average([3, 5])
+# puts show_multiplicative_average([3, 5])
 
-puts show_multiplicative_average([6])
+# puts show_multiplicative_average([6])
 
-puts show_multiplicative_average([2, 5, 7, 11, 13, 17])
+# puts show_multiplicative_average([2, 5, 7, 11, 13, 17])
+
+# Problem 8
+
+def multiply_list(arr1, arr2)
+  products = []
+  
+  arr1.each.with_index do |el, idx|
+    products.push(el * arr2[idx])
+  end
+
+  products
+end
+
+# puts multiply_list([3, 5, 7], [9, 10, 11]) == [27, 50, 77]
+
+# Problem 9
+
+def multiply_all_pairs(arr1, arr2)
+  products = []
+
+  arr1.each do |el|
+    el_products = arr2.map { |el2| el * el2 }
+    products << el_products
+  end
+
+  products.flatten.sort
+end
+
+puts multiply_all_pairs([2, 4], [4, 3, 1, 2]) == [2, 4, 4, 6, 8, 8, 12, 16]
+
