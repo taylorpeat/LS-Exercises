@@ -30,6 +30,26 @@ def word_cap(words)
   words.downcase.split(' ').map(&:capitalize).join(' ')
 end
 
-puts word_cap('four score and seven') == 'Four Score And Seven'
-puts word_cap('the javaScript language') == 'The Javascript Language'
-puts word_cap('this is a "quoted" word') == 'This Is A "quoted" Word'
+# puts word_cap('four score and seven') == 'Four Score And Seven'
+# puts word_cap('the javaScript language') == 'The Javascript Language'
+# puts word_cap('this is a "quoted" word') == 'This Is A "quoted" Word'
+
+def swapcase(string)
+  new_string = string.chars.map do |ch|
+    if ch.upcase == ch
+      ch.downcase
+    elsif ch.downcase == ch
+      ch.upcase
+    end
+  end
+
+  new_string.join('')
+end
+
+# puts swapcase('CamelCase') == 'cAMELcASE'
+# puts swapcase('Tonight on XYZ-TV') == 'tONIGHT ON xyz-tv'
+
+
+
+
+
