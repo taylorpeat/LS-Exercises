@@ -124,5 +124,14 @@ def multiply_all_pairs(arr1, arr2)
   products.flatten.sort
 end
 
-puts multiply_all_pairs([2, 4], [4, 3, 1, 2]) == [2, 4, 4, 6, 8, 8, 12, 16]
+# puts multiply_all_pairs([2, 4], [4, 3, 1, 2]) == [2, 4, 4, 6, 8, 8, 12, 16]
+
+# Problem 10
+
+def penultimate(words)
+  words.split(' ')[-2]
+end
+
+puts penultimate('last word') == 'last'
+puts penultimate('Launch School is great!') == 'is'
 
