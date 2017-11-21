@@ -19,7 +19,17 @@ def letter_case_count(string)
   { lowercase: lowercase, uppercase: uppercase, neither: neither }
 end
 
-puts letter_case_count('abCdef 123') == { lowercase: 5, uppercase: 1, neither: 4 }
-puts letter_case_count('AbCd +Ef') == { lowercase: 3, uppercase: 3, neither: 2 }
-puts letter_case_count('123') == { lowercase: 0, uppercase: 0, neither: 3 }
-puts letter_case_count('') == { lowercase: 0, uppercase: 0, neither: 0 }
+# puts letter_case_count('abCdef 123') == { lowercase: 5, uppercase: 1, neither: 4 }
+# puts letter_case_count('AbCd +Ef') == { lowercase: 3, uppercase: 3, neither: 2 }
+# puts letter_case_count('123') == { lowercase: 0, uppercase: 0, neither: 3 }
+# puts letter_case_count('') == { lowercase: 0, uppercase: 0, neither: 0 }
+
+# Problem 3
+
+def word_cap(words)
+  words.downcase.split(' ').map(&:capitalize).join(' ')
+end
+
+puts word_cap('four score and seven') == 'Four Score And Seven'
+puts word_cap('the javaScript language') == 'The Javascript Language'
+puts word_cap('this is a "quoted" word') == 'This Is A "quoted" Word'
