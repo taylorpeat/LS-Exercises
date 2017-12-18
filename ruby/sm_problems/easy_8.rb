@@ -23,4 +23,14 @@ def mad_libs
   puts "\nDo you #{verb} your #{adj} #{noun} #{adverb}? That's hilarious!\n\n"
 end
 
-mad_libs
+# mad_libs
+
+# Problem 3
+
+def substrings_at_start(string)
+  string.chars.map.with_index(1) { |_, idx| string.slice(0, idx) }
+end
+
+puts substrings_at_start('abc') == ['a', 'ab', 'abc']
+puts substrings_at_start('a') == ['a']
+puts substrings_at_start('xyzzy') == ['x', 'xy', 'xyz', 'xyzz', 'xyzzy']
