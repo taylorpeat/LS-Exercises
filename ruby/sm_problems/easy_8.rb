@@ -96,4 +96,21 @@ end
 
 # Problem 8
 
+def double_consonants(string)
+  string.gsub(/([b-df-hj-np-tv-z])/i, '\1\1')
+end
 
+# def double_consonants(string)
+#   string.chars.map do |char|
+#     if char.match(/[a-z]/i) && char.match(/[^aeiou]/i)
+#       char + char
+#     else
+#       char
+#     end
+#   end.join
+# end
+
+puts double_consonants('String')
+puts double_consonants("Hello-World!") == "HHellllo-WWorrlldd!"
+puts double_consonants("July 4th") == "JJullyy 4tthh"
+puts double_consonants('') == ""
