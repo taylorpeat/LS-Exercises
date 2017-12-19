@@ -80,8 +80,20 @@ def fizzbuzz(start_num, end_num)
     print word
     word = ''
   end
-  
+
   puts ''
 end
 
-fizzbuzz(1, 15)
+# Problem 7
+
+def repeater(string)
+  string.chars.zip(string.chars).flatten.join
+end
+
+# puts repeater('Hello') == "HHeelllloo"
+# puts repeater("Good job!") == "GGoooodd  jjoobb!!"
+# puts repeater('') == ''
+
+# Problem 8
+
+
