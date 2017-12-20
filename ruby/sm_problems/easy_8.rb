@@ -121,8 +121,25 @@ def reversed_number(num)
   num.to_s.reverse.to_i
 end
 
-puts reversed_number(12345) == 54321
-puts reversed_number(12213) == 31221
-puts reversed_number(456) == 654
-puts reversed_number(12000) == 21 # Note that zeros get dropped!
-puts reversed_number(1) == 1
+# puts reversed_number(12345) == 54321
+# puts reversed_number(12213) == 31221
+# puts reversed_number(456) == 654
+# puts reversed_number(12000) == 21 # Note that zeros get dropped!
+# puts reversed_number(1) == 1
+
+# Problem 10
+
+def center_of(str)
+  midpoint = str.length / 2
+  if str.length.even?
+    str[midpoint - 1..midpoint]
+  else
+    str[midpoint]
+  end
+end
+
+puts center_of('I love ruby') == 'e'
+puts center_of('Launch School') == ' '
+puts center_of('Launch') == 'un'
+puts center_of('Launchschool') == 'hs'
+puts center_of('x') == 'x'
