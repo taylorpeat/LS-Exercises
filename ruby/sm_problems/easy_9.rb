@@ -103,11 +103,40 @@ def sequence(length, step)
   Array.new(length) { |idx| (idx + 1) * step }
 end
 
-puts sequence(5, 1) == [1, 2, 3, 4, 5]
-puts sequence(4, -7) == [-7, -14, -21, -28]
-puts sequence(3, 0) == [0, 0, 0]
-puts sequence(0, 1000000) == []
+# puts sequence(5, 1) == [1, 2, 3, 4, 5]
+# puts sequence(4, -7) == [-7, -14, -21, -28]
+# puts sequence(3, 0) == [0, 0, 0]
+# puts sequence(0, 1000000) == []
 
 
 # Problem 9
 
+def get_grade(gr1, gr2, gr3)
+  average = (gr1 + gr2 + gr3) / 3
+  return "A" if average >= 90
+  return "B" if average >= 80
+  return "C" if average >= 70
+  return "D" if average >= 60
+  "F"
+end
+
+# puts get_grade(95, 90, 93) == "A"
+# puts get_grade(50, 50, 95) == "D"
+
+
+# Problem 10
+
+def buy_fruit(list)
+  cart = []
+  
+  list.map do |fruit, quantity|
+    quantity.times do
+      cart << fruit
+    end
+  end
+  
+  cart
+end
+
+puts buy_fruit([["apples", 3], ["orange", 1], ["bananas", 2]]) ==
+  ["apples", "apples", "apples", "orange", "bananas","bananas"]
