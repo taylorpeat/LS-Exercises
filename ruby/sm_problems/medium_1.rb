@@ -48,16 +48,41 @@ require 'pry'
 
 def light_switcher(n)
   lights = Array.new(n)
-  
+
   1.upto(n) do |i|
-    lights.map!.with_index do |light, idx|
-      if ((idx + 1) % i) == 0
-        light == 1 ? nil : 1
-      else
-        light
-      end
-    end
+    lights.map!.with_index(1) { |light, idx| idx % i == 0 ? !light : light }
   end
 
   lights.map.with_index(1) { |on, idx| idx if on }.compact
 end
+
+# def light_switcher(n)
+#   arr = []
+#   i = 1
+  
+#   while (i ** 2) < n do
+#     arr << i ** 2
+#     i += 1
+#   end
+  
+#   arr
+# end
+
+# p light_switcher(2)
+# p light_switcher(5)
+# p light_switcher(10)
+# p light_switcher(1000)
+
+# Problem 5
+
+def diamond(n, num=1)
+  puts ("*" * num).center(n)
+  return if num >= n
+  diamond(n, num + 2)
+  puts ("*" * num).center(n)
+end
+
+diamond(1)
+diamond(3)
+diamond(9)
+
