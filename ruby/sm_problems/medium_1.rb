@@ -75,14 +75,98 @@ end
 
 # Problem 5
 
-def diamond(n, num=1)
-  puts ("*" * num).center(n)
-  return if num >= n
-  diamond(n, num + 2)
-  puts ("*" * num).center(n)
+# def diamond(n, num=1)
+#   puts ("*" * num).center(n)
+#   return if num >= n
+#   diamond(n, num + 2)
+#   puts ("*" * num).center(n)
+# end
+
+def diamond(n)
+  n.times { |i| puts ("*" * ([i + 1, n - i].min * 2 - 1)).center(n) }
 end
 
-diamond(1)
-diamond(3)
-diamond(9)
+# diamond(1)
+# diamond(3)
+# diamond(9)
 
+# Problem 6
+
+def minilang(commands)
+  @register = 0
+  @stack = []
+
+  def push
+    @stack << @register.to_s
+  end
+
+  def add
+    @register += @stack.pop.to_i
+  end
+
+  def sub
+    @register -= @stack.pop.to_i
+  end
+
+  def mult
+    @register *= @stack.pop.to_i
+  end
+
+  def div
+    @register /= @stack.pop.to_i
+  end
+
+  def mod
+    @register %= @stack.pop.to_i
+  end
+
+  def pop
+    @register = @stack.pop.to_i
+  end
+
+  def print
+    puts @register.to_s
+  end
+
+  commands.downcase.split.each do |command|
+    if /\d/ =~ command
+      @register = command.to_i
+      next
+    end
+
+    eval command
+  end
+
+  puts "---"
+end
+
+# minilang('PRINT')
+# # 0
+
+# minilang('5 PUSH 3 MULT PRINT')
+# # 15
+
+# minilang('5 PRINT PUSH 3 PRINT ADD PRINT')
+# # 5
+# # 3
+# # 8
+# minilang('5 PUSH POP PRINT')
+# # 5
+
+# minilang('3 PUSH 4 PUSH 5 PUSH PRINT ADD PRINT POP PRINT ADD PRINT')
+# # 5
+# # 10
+# # 4
+# # 7
+
+# minilang('3 PUSH PUSH 7 DIV MULT PRINT ')
+# # 6
+
+# minilang('4 PUSH PUSH 7 MOD MULT PRINT ')
+# # 12
+
+# minilang('-3 PUSH 5 SUB PRINT')
+# # 8
+
+# minilang('6 PUSH')
+# # (nothing printed; no PRINT commands)
