@@ -44,7 +44,6 @@ end
 # puts max_rotation(8_703_529_146) == 7_321_609_845
 
 # Problem 4
-require 'pry'
 
 def light_switcher(n)
   lights = Array.new(n)
@@ -220,12 +219,71 @@ def fibonacci_last(n)
   last
 end
 
-puts fibonacci_last(15)        # -> 0  (the 15th Fibonacci number is 610)
-puts fibonacci_last(20)        # -> 5 (the 20th Fibonacci number is 6765)
-puts fibonacci_last(100)       # -> 5 (the 100th Fibonacci number is 354224848179261915075)
-puts fibonacci_last(100_001)   # -> 1 (this is a 20899 digit number)
-puts fibonacci_last(1_000_007) # -> 3 (this is a 208989 digit number)
-puts fibonacci_last(123456789) # -> 4
+# puts fibonacci_last(15)        # -> 0  (the 15th Fibonacci number is 610)
+# puts fibonacci_last(20)        # -> 5 (the 20th Fibonacci number is 6765)
+# puts fibonacci_last(100)       # -> 5 (the 100th Fibonacci number is 354224848179261915075)
+# puts fibonacci_last(100_001)   # -> 1 (this is a 20899 digit number)
+# puts fibonacci_last(1_000_007) # -> 3 (this is a 208989 digit number)
+# puts fibonacci_last(123456789) # -> 4
 
+# Problem Queens
 
+require 'pry_debug'
+
+def n_queens(n)
+  board = build_board(n)
+  queens = []
+  check_all_squares(board, queens, n)
+end
+
+def check_all_squares(board, queens, n)
+  successful_combos = []
+
+  board.each do |q_sq|
+    board = remove_queen_square(board, q_sq)
+    successful_combos += process_queen_square(q_sq, board, queens, n)
+  end
+
+  successful_combos
+end
+
+def process_queen_square(q_sq, board, queens, n)
+  queens += [q_sq]
+  
+  return [[queens]] if queens.length == n
+
+  temp_board = remove_interactions(board, q_sq)
+  return [] if temp_board.length < n - queens.length
+
+  check_all_squares(temp_board, queens, n)
+end
+
+def remove_queen_square(board, q_sq)
+  board.select do |sq|
+    sq != q_sq
+  end
+end
+
+def remove_interactions(board, q_sq)
+  board.select do |sq|
+    sq[0] != q_sq[0] && # same row
+    sq[1] != q_sq[1] && # same col
+    (sq[0] - q_sq[0]).abs != sq[1] - q_sq[1]# diagonal
+  end
+end
+
+def build_board(n)
+  board = []
+
+  1.upto(n) do |col|
+    1.upto(n) do |row|
+      board << [row, col]
+    end
+  end
+
+  board
+end
+
+print n_queens(9).length
+puts
 
