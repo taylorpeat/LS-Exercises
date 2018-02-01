@@ -183,5 +183,19 @@ def word_to_digit(string)
   string.split(/\b/).map { |word| DIGITS.keys.include?(word) ? DIGITS[word] : word }.join
 end
 
-puts word_to_digit('Please call me at five five five one two three four. Thanks.')
-puts word_to_digit('Please call me at five five five one two three four. Thanks.') == 'Please call me at 5 5 5 1 2 3 4. Thanks.'
+# puts word_to_digit('Please call me at five five five one two three four. Thanks.')
+# puts word_to_digit('Please call me at five five five one two three four. Thanks.') == 'Please call me at 5 5 5 1 2 3 4. Thanks.'
+
+# Problem 8
+
+def fibonacci(n, seq=2, n1=1, n2=1)
+  seq >= n ? n2 : fibonacci(n, seq + 1, n2, n1 + n2)
+end
+
+puts fibonacci(1)
+puts fibonacci(2)
+puts fibonacci(3)
+puts fibonacci(4)
+puts fibonacci(5)
+puts fibonacci(12) == 144
+puts fibonacci(20) == 6765
