@@ -188,8 +188,18 @@ end
 
 # Problem 8
 
-def fibonacci(n, seq=2, n1=1, n2=1)
-  seq >= n ? n2 : fibonacci(n, seq + 1, n2, n1 + n2)
+# def fibonacci(n, seq=2, n1=1, n2=1)
+#   seq >= n ? n2 : fibonacci(n, seq + 1, n2, n1 + n2)
+# end
+
+# Problem 9
+
+def fibonacci(n)
+  nums = [1,1]
+  (n - 2).times do
+    nums = [nums[1], nums.reduce(:+)]
+  end
+  nums[1]
 end
 
 puts fibonacci(1)
@@ -199,3 +209,4 @@ puts fibonacci(4)
 puts fibonacci(5)
 puts fibonacci(12) == 144
 puts fibonacci(20) == 6765
+
